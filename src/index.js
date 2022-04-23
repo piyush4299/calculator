@@ -1,20 +1,5 @@
 const prompt = require("prompt-sync")({ sigint: true });
-
-const addNumbers = (firstNumber, secondNumber) => {
-  return Number(firstNumber) + Number(secondNumber);
-};
-
-const subtractNumbers = (firstNumber, secondNumber) => {
-  return Number(firstNumber) - Number(secondNumber);
-};
-
-const multiplyNumbers = (firstNumber, secondNumber) => {
-  return Number(firstNumber) * Number(secondNumber);
-};
-
-const divideNumbers = (firstNumber, secondNumber) => {
-  return Number(firstNumber) / Number(secondNumber);
-};
+const Calculator = require("./Calculator.js");
 
 const takeNumbersInput = () => {
   const firstNumber = prompt("Enter first number: ");
@@ -32,29 +17,30 @@ while (calculationGameStat) {
   if ([1, 2, 3, 4].includes(operationToPerform)) {
     var { firstNumber, secondNumber } = takeNumbersInput();
   }
+  const calculatorObj = new Calculator(firstNumber, secondNumber);
   switch (operationToPerform) {
     case 1:
       console.log(
         "Result for Addition operation for the two list number is: ",
-        addNumbers(firstNumber, secondNumber)
+        calculatorObj.addNumbers(firstNumber, secondNumber)
       );
       break;
     case 2:
       console.log(
         "Result for Addition operation for the two list number is: ",
-        subtractNumbers(firstNumber, secondNumber)
+        calculatorObj.subtractNumbers(firstNumber, secondNumber)
       );
       break;
     case 3:
       console.log(
         "Result for Addition operation for the two list number is: ",
-        multiplyNumbers(firstNumber, secondNumber)
+        calculatorObj.multiplyNumbers(firstNumber, secondNumber)
       );
       break;
     case 4:
       console.log(
         "Result for Addition operation for the two list number is: ",
-        divideNumbers(firstNumber, secondNumber)
+        calculatorObj.divideNumbers(firstNumber, secondNumber)
       );
       break;
     case 5:
